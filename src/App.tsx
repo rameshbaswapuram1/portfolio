@@ -1,15 +1,32 @@
-import "./App.css";
 import Header from "./components/Header";
-import image from "./assets/svgs/headerBgImage.svg";
-function App() {
+import { Container } from "@mui/material";
+import FirstSection from "./sections/firstSection/FirstSection";
+import BackGroundImage from "./components/BackGroundImage";
+import About from "./sections/about/About";
+import Experiences from "./sections/experiences/Experiences";
+import Skills from "./sections/skills/Skills";
+import Projects from "./sections/projects/Projects";
+import Educations from "./sections/educations/Educations";
+
+const App = () => {
   return (
-    <>
-      <div className="xl:max-w-7xl bg-amber-500 mx-auto">
+    <Container maxWidth="lg">
+      <BackGroundImage isSection={false}>
         <Header />
-      </div>
-      <img className="w-full h-screen" src={image} alt="" />
-    </>
+        <FirstSection />
+      </BackGroundImage>
+      <About />
+      <BackGroundImage isSection={true}>
+        <Experiences />
+      </BackGroundImage>
+      <Skills />
+      <Projects />
+      <BackGroundImage isSection={true}>
+        <Educations />
+      </BackGroundImage>
+      {/* <Box sx={{ height: "100vh" }} /> */}
+    </Container>
   );
-}
+};
 
 export default App;

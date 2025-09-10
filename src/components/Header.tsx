@@ -1,27 +1,59 @@
-import React from "react";
-
+import { Box, Typography } from "@mui/material";
 const navs = [
-  { name: "ABOUT" },
-  { name: "EXPERIENCE" },
-  { name: "SKILLS" },
-  { name: "EDUCATION" },
-  { name: "BLOGS" },
-  { name: "PROJECTS" },
+  { navItem: "ABOUT", href: "" },
+  { navItem: "EXPERIENCE", href: "" },
+  { navItem: "SKILLS", href: "" },
+  { navItem: "EDUCATION", href: "" },
+  { navItem: "BLOGS", href: "" },
+  { navItem: "PROJECTS", href: "" },
 ];
 
 const Header = () => {
   return (
-    <header className="flex justify-between h-14   items-center">
-      <a className="text-[var(--primary-color)]">B RAMESH</a>
-      <ul className="hidden gap-3  md:flex">
+    <Box
+      component={"header"}
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        height: "60px",
+        width: "100%",
+      }}
+    >
+      <Typography
+        sx={{
+          color: "var(--primary-color)",
+          fontSize: "clamp(1.375rem, 0.75rem + 2vw, 1.875rem)",
+          fontWeight: 700,
+        }}
+      >
+        B Ramesh
+      </Typography>
+      <Box
+        component={"nav"}
+        sx={{
+          width: "50%",
+          display: { xs: "none", sm: "flex" },
+          justifyContent: "end",
+        }}
+      >
         {navs.map((nav) => (
-          <li className="hover:text-[var(--seconday-color)] font-semibold text-[]">
-            <a>{nav.name}</a>
-          </li>
+          <Typography
+            sx={{
+              fontSize: "14px",
+              ml: "4%",
+              cursor: "pointer",
+              "&.MuiTypography-root:hover": {
+                color: "var(--secondary-color)",
+              },
+            }}
+            // component={"a"}
+          >
+            {nav.navItem}
+          </Typography>
         ))}
-      </ul>
-      <h1 className="block md:hidden">amber</h1>
-    </header>
+      </Box>
+    </Box>
   );
 };
 
