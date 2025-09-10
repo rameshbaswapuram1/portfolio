@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
 import Marquee from "react-fast-marquee";
 const skillsData = [
   "HTML",
