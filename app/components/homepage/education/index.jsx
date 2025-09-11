@@ -4,13 +4,7 @@ import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from "../../../assets/lottie/study.json";
 import GlowCard from "../../helper/glow-card";
-
-import dynamic from "next/dynamic";
-
-// Load AnimationLottie only on client
-const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
-  ssr: false,
-});
+import AnimationLottie from "../../helper/animation-lottie";
 
 function Education() {
   return (
