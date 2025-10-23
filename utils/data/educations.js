@@ -3,7 +3,7 @@ export const educations = [
     id: 1,
     title: "Bachelor Degree",
     duration: "2020 - Present",
-    institution: "N University",
+    institution: "National University of Bangladesh",
   },
   {
     id: 2,
@@ -16,5 +16,5 @@ export const educations = [
     title: "Secondary School Certificate",
     duration: "2008 - 2018",
     institution: "Baitus Saif Islamia Madrasah",
-  },
-];
+  }
+]
