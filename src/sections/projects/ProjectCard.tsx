@@ -193,7 +193,7 @@ function ProjectCard({ project }: any) {
           <Typography component="span" sx={{ color: "#9ca3af" }}>
             {" ['"}
           </Typography>
-          {project.tools.map((tag, i) => (
+          {project.tools.map((tag: any, i: any) => (
             <React.Fragment key={i}>
               <Typography
                 component="span"
