@@ -7,6 +7,8 @@ import Experiences from "./sections/experiences/Experiences";
 import Skills from "./sections/skills/Skills";
 import Projects from "./sections/projects/Projects";
 import Educations from "./sections/educations/Educations";
+import Contact from "./sections/contact/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
       <BackGroundImage isSection={true}>
         <Educations />
       </BackGroundImage>
+      <Contact />
+      <Footer />
       {/* <Box sx={{ height: "100vh" }} /> */}
     </Container>
   );
