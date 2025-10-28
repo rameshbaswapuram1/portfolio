@@ -72,10 +72,7 @@ const ContactSection: React.FC = () => {
 
     try {
       setIsLoading(true);
-      await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/contact`,
-        userInput
-      );
+      await axios.post(`/api/contact`, userInput);
       toast.success("Message sent successfully!");
       setUserInput({ name: "", email: "", message: "" });
     } catch (err: any) {
@@ -96,7 +93,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <Box sx={{ my: 10, color: "white",  }}>
+    <Box sx={{ my: 10, color: "white" }}>
       <Typography
         variant="h4"
         sx={{
