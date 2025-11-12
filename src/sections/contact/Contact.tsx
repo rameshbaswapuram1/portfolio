@@ -9,7 +9,7 @@ import {
   IconButton,
   Paper,
 } from "@mui/material";
-import { MdAlternateEmail, MdCall as IoMdCall } from "react-icons/md";
+import { MdAlternateEmail, MdCall } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { IoLogoGithub } from "react-icons/io";
 import { BiLogoLinkedin } from "react-icons/bi";
@@ -17,6 +17,7 @@ import { FaXTwitter, FaStackOverflow, FaFacebook } from "react-icons/fa6";
 import { TbMailForward } from "react-icons/tb";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { styles } from "./stylesx";
 
 interface PersonalData {
   email: string;
@@ -29,7 +30,6 @@ interface PersonalData {
   facebook: string;
 }
 
-// ✅ Replace with your real data
 const personalData: PersonalData = {
   email: "yourmail@example.com",
   phone: "+91 9876543210",
@@ -62,19 +62,17 @@ const ContactSection: React.FC = () => {
 
   const handleSendMail = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!userInput.email || !userInput.message || !userInput.name) {
+    if (!userInput.name || !userInput.email || !userInput.message) {
       setError({ ...error, required: true });
       return;
-    } else if (error.email) {
-      return;
-    }
+    } else if (error.email) return;
 
     try {
       setIsLoading(true);
       await axios.post(`/api/contact`, userInput);
       toast.success("Message sent successfully!");
       setUserInput({ name: "", email: "", message: "" });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       toast.error(err?.response?.data?.message || "Something went wrong!");
     } finally {
@@ -82,46 +80,20 @@ const ContactSection: React.FC = () => {
     }
   };
 
-  const iconStyle = {
-    backgroundColor: "#8b98a5",
-    color: "#10172d",
-    transition: "0.3s",
-    "&:hover": {
-      backgroundColor: "#16f2b3",
-      transform: "scale(1.1)",
-    },
-  };
-
   return (
-    <Box sx={{ my: 10, color: "white" }}>
-      <Typography
-        variant="h4"
-        sx={{
-          textAlign: "center",
-          mb: 4,
-          fontWeight: 600,
-          letterSpacing: 1,
-          color: "#16f2b3",
-        }}
-      >
+    <Box sx={styles.container}>
+      <Typography variant="h4" sx={styles.heading}>
         CONTACT
       </Typography>
 
       <Grid container spacing={6} alignItems="center">
-        {/* ---------- Contact Form ---------- */}
+        {/* -------- Left Section: Contact Form -------- */}
         <Grid size={{ xs: 12, md: 6 }}>
-          <Paper
-            sx={{
-              p: 4,
-              backgroundColor: "#10172d",
-              border: "1px solid #464c6a",
-              borderRadius: 2,
-            }}
-          >
-            <Typography variant="h6" sx={{ mb: 2, color: "#16f2b3" }}>
+          <Paper sx={styles.paper}>
+            <Typography variant="h6" sx={styles.subHeading}>
               Contact with me
             </Typography>
-            <Typography variant="body2" sx={{ mb: 3, color: "#d3d8e8" }}>
+            <Typography variant="body2" sx={styles.subText}>
               If you have any questions or concerns, please don't hesitate to
               contact me. I’m open to any work opportunities aligned with my
               skills and interests.
@@ -138,16 +110,7 @@ const ContactSection: React.FC = () => {
                   setUserInput({ ...userInput, name: e.target.value })
                 }
                 onBlur={checkRequired}
-                sx={{
-                  mb: 3,
-                  input: { color: "white" },
-                  label: { color: "#8b98a5" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "#353a52" },
-                    "&:hover fieldset": { borderColor: "#16f2b3" },
-                    "&.Mui-focused fieldset": { borderColor: "#16f2b3" },
-                  },
-                }}
+                sx={styles.inputField}
               />
 
               <TextField
@@ -167,16 +130,7 @@ const ContactSection: React.FC = () => {
                     email: !isValidEmail(userInput.email),
                   });
                 }}
-                sx={{
-                  mb: 3,
-                  input: { color: "white" },
-                  label: { color: "#8b98a5" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "#353a52" },
-                    "&:hover fieldset": { borderColor: "#16f2b3" },
-                    "&.Mui-focused fieldset": { borderColor: "#16f2b3" },
-                  },
-                }}
+                sx={styles.inputField}
               />
               {error.email && (
                 <Typography color="error" variant="body2" sx={{ mb: 2 }}>
@@ -196,16 +150,7 @@ const ContactSection: React.FC = () => {
                   setUserInput({ ...userInput, message: e.target.value })
                 }
                 onBlur={checkRequired}
-                sx={{
-                  mb: 3,
-                  textarea: { color: "white" },
-                  label: { color: "#8b98a5" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "#353a52" },
-                    "&:hover fieldset": { borderColor: "#16f2b3" },
-                    "&.Mui-focused fieldset": { borderColor: "#16f2b3" },
-                  },
-                }}
+                sx={styles.inputField}
               />
 
               {error.required && (
@@ -218,18 +163,7 @@ const ContactSection: React.FC = () => {
                 type="submit"
                 fullWidth
                 disabled={isLoading}
-                sx={{
-                  mt: 1,
-                  background: "linear-gradient(to right, #ec4899, #8b5cf6)",
-                  color: "white",
-                  borderRadius: "50px",
-                  py: 1.5,
-                  fontWeight: 600,
-                  letterSpacing: 1,
-                  "&:hover": {
-                    background: "linear-gradient(to right, #d946ef, #7c3aed)",
-                  },
-                }}
+                sx={styles.submitButton}
               >
                 {isLoading ? (
                   <CircularProgress size={24} sx={{ color: "white" }} />
@@ -243,31 +177,33 @@ const ContactSection: React.FC = () => {
           </Paper>
         </Grid>
 
-        {/* ---------- Contact Info + Socials ---------- */}
+        {/* -------- Right Section: Contact Info & Social Links -------- */}
         <Grid size={{ xs: 12, md: 6 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          <Box sx={styles.infoContainer}>
             {/* Contact Details */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <IconButton sx={iconStyle}>
+            <Box sx={styles.infoRow}>
+              <IconButton sx={styles.iconButton}>
                 <MdAlternateEmail size={24} />
               </IconButton>
               <Typography variant="body1">{personalData.email}</Typography>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <IconButton sx={iconStyle}>
-                <IoMdCall size={24} />
+
+            <Box sx={styles.infoRow}>
+              <IconButton sx={styles.iconButton}>
+                <MdCall size={24} />
               </IconButton>
               <Typography variant="body1">{personalData.phone}</Typography>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <IconButton sx={iconStyle}>
+
+            <Box sx={styles.infoRow}>
+              <IconButton sx={styles.iconButton}>
                 <CiLocationOn size={24} />
               </IconButton>
               <Typography variant="body1">{personalData.address}</Typography>
             </Box>
 
             {/* Social Links */}
-            <Box sx={{ display: "flex", gap: 2, mt: 3, flexWrap: "wrap" }}>
+            <Box sx={styles.socialLinks}>
               {[
                 { icon: <IoLogoGithub />, link: personalData.github },
                 { icon: <BiLogoLinkedin />, link: personalData.linkedIn },
@@ -281,7 +217,7 @@ const ContactSection: React.FC = () => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ ...iconStyle, p: 1.5 }}
+                  sx={{ ...styles.iconButton, p: 1.5 }}
                 >
                   {item.icon}
                 </IconButton>

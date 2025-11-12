@@ -11,15 +11,9 @@ const BackGroundImage = ({
   isSection: boolean;
 }) => {
   return (
-    <Box
-      sx={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Box sx={styles.mainDiv}>
       <Box
-        sx={{ position: "absolute", top: -0, zIndex: -1, width: "100%" }}
+        sx={styles.backgroundImage}
         component={"img"}
         src={isSection ? SectionImage : HeroImage}
         alt="Background Image"
@@ -30,3 +24,12 @@ const BackGroundImage = ({
 };
 
 export default BackGroundImage;
+
+const styles = {
+  mainDiv: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+  },
+  backgroundImage: { position: "absolute", top: -0, zIndex: -1, width: "100%" },
+};

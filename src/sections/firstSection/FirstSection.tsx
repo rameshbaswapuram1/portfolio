@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import { helloText, styles } from "./styles";
+import { helloText, styles as sharedStyles, styles } from "./styles";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
@@ -22,113 +22,52 @@ const skills = [
   "React-redux-toolkit",
   "Material UI",
 ];
-const qualities = [
-  "hardWorker:",
-  "quickLearner:",
-  "problemSolver:",
-  "teamPlayer:",
-];
+
+const qualities = ["hardWorker:", "quickLearner:", "problemSolver:", "teamPlayer:"];
+
 const FirstSection = () => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        flexDirection: { xs: "column-reverse", md: "row" },
-        alignItems: "center",
-        mt: "4%",
-      }}
-    >
-      <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+    <Box sx={styles.container}>
+      {/* Left Section */}
+      <Box sx={styles.leftSection}>
         <Typography sx={helloText()}>Hello,</Typography>
-        <Typography component={"span"} sx={helloText()}>
+        <Typography component="span" sx={helloText()}>
           This is
         </Typography>
-        <Typography component={"span"} sx={helloText("secondary")}>
+        <Typography component="span" sx={helloText("secondary")}>
           {" B Ramesh"}
         </Typography>
-        <Typography component={"span"} sx={helloText()}>
+        <Typography component="span" sx={helloText()}>
           {". I'm a Professional "}
         </Typography>
-        <Typography component={"span"} sx={helloText("primary")}>
+        <Typography component="span" sx={helloText("primary")}>
           Software Developer
         </Typography>
-        <Typography component={"span"} sx={helloText("primary")}>
+        <Typography component="span" sx={helloText("primary")}>
           .
         </Typography>
-        <Box sx={{ display: "flex", gap: 3, my: "5%" }}>
-          {accounts.map((account) => (
-            <Typography component={"a"} sx={styles.anchoreLink}>
+
+        <Box sx={styles.socialLinks}>
+          {accounts.map((account, i) => (
+            <Typography key={i} component="a" sx={sharedStyles.anchoreLink}>
               {account.icon}
             </Typography>
           ))}
         </Box>
-        <Box sx={{ mt: "5%", gap: 2, display: "flex" }}>
-          <Typography
-            component={"a"}
-            href="#contact"
-            sx={{
-              display: "inline-block",
-              borderRadius: "9999px",
-              backgroundImage: "linear-gradient(to right, #7c3aed, #ec4899)",
-              padding: "1px",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                backgroundImage: "linear-gradient(to right, #ec4899, #7c3aed)",
-              },
-            }}
-          >
-            <Button
-              sx={{
-                px: { xs: 1.5, md: 4 },
-                py: { xs: 1, md: 1.5 },
-                borderRadius: "9999px",
-                backgroundColor: "#0d1224",
-                color: "#fff",
-                fontSize: { xs: "0.75rem", md: "0.875rem" },
-                fontWeight: { xs: 500, md: 600 },
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                display: "flex",
-                alignItems: "center",
-                gap: 0.25,
-                transition: "all 0.2s ease-out",
-                "&:hover": {
-                  gap: "0.75rem",
-                  backgroundColor: "#0d1224", // keep bg same
-                },
-              }}
-            >
+
+        <Box sx={styles.buttonsContainer}>
+          <Typography component="a" href="#contact" sx={styles.gradientBorder}>
+            <Button sx={styles.contactButton}>
               <span>Contact me</span>
               <RiContactsFill size={16} />
             </Button>
           </Typography>
+
           <Typography
             target="_blank"
-            component={"a"}
+            component="a"
             role="button"
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.25rem",
-              px: { xs: 1.5, md: 4 },
-              py: { xs: 1, md: 1.5 },
-              borderRadius: "9999px",
-              backgroundImage: "linear-gradient(to right, #ec4899, #7c3aed)",
-              fontSize: { xs: "0.75rem", md: "0.875rem" },
-              fontWeight: { xs: 500, md: 600 },
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-              color: "#fff",
-              transition: "all 0.2s ease-out",
-              "&:hover": {
-                gap: "0.75rem",
-                backgroundImage: "linear-gradient(to right, #7c3aed, #ec4899)",
-                textDecoration: "none",
-                color: "#fff",
-              },
-            }}
+            sx={styles.resumeButton}
           >
             <Box component="span">Get Resume</Box>
             <MdDownload size={16} />
@@ -136,128 +75,78 @@ const FirstSection = () => {
         </Box>
       </Box>
 
-      <Box
-        sx={{
-          width: { xs: "100%", md: "45%" },
-          position: "relative",
-          borderRadius: "12px",
-          border: "1px solid #1b2c68a0",
-          background: "linear-gradient(to right, #0d1224, #0a0d37)",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "1px",
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
-            background:
-              "linear-gradient(to right, transparent, #ec4899, #7c3aed, transparent)",
-          },
-        }}
-      >
-        <Box sx={{ px: { xs: 2, lg: 4 }, py: 2 }}>
-          <Box sx={{ display: "flex", gap: 1 }}>
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                bgcolor: "error.light",
-              }}
-            />
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                bgcolor: "orange",
-              }}
-            />
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                bgcolor: "success.light",
-              }}
-            />
+      {/* Right Section */}
+      <Box sx={styles.rightSection}>
+        <Box sx={styles.windowHeader}>
+          <Box sx={styles.windowDotsContainer}>
+            <Box sx={styles.redDot} />
+            <Box sx={styles.orangeDot} />
+            <Box sx={styles.greenDot} />
           </Box>
         </Box>
 
-        <Box
-          sx={{
-            borderTop: "2px solid #312e81",
-            px: { xs: 2, lg: 4 },
-            py: { xs: 2, lg: 4 },
-            fontFamily: "monospace",
-            fontSize: { xs: "0.75rem", md: "0.875rem", lg: "1rem" },
-            color: "white",
-          }}
-        >
+        <Box sx={styles.codeBox}>
           <Typography component="div">
-            <Box component="span" sx={{ color: "#ec4899", mr: 1 }}>
+            <Box component="span" sx={styles.pinkText}>
               const
             </Box>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+            <Box component="span" sx={styles.whiteText}>
               coder
             </Box>
-            <Box component="span" sx={{ color: "#ec4899", mr: 1 }}>
+            <Box component="span" sx={styles.pinkText}>
               =
             </Box>
-            <Box component="span" sx={{ color: "gray" }}>
+            <Box component="span" sx={styles.grayText}>
               {"{"}
             </Box>
           </Typography>
 
           {/* name */}
-          <Typography component="div" sx={{ ml: { xs: 2, lg: 4 } }}>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+          <Typography component="div" sx={styles.indent1}>
+            <Box component="span" sx={styles.whiteText}>
               name:
             </Box>
-            <Box component="span" sx={{ color: "gray" }}>
+            <Box component="span" sx={styles.grayText}>
               '
             </Box>
-            <Box component="span" sx={{ color: "#fcd34d" }}>
+            <Box component="span" sx={styles.yellowText}>
               B Ramesh
             </Box>
-            <Box component="span" sx={{ color: "gray" }}>
+            <Box component="span" sx={styles.grayText}>
               ',
             </Box>
           </Typography>
 
           {/* skills */}
-          <Typography component="div" sx={{ ml: { xs: 2, lg: 4 } }}>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+          <Typography component="div" sx={styles.indent1}>
+            <Box component="span" sx={styles.whiteText}>
               skills:
             </Box>
-            <Box component="span" sx={{ color: "gray" }}>
-              ['
+            <Box component="span" sx={styles.grayText}>
+              [' 
             </Box>
-            {skills.map((skill, index) => (
-              <>
-                <Box component="span" sx={{ color: "#fcd34d" }}>
-                  {skill}
-                </Box>
-                {index !== skills.length - 1 && (
-                  <Box component="span" sx={{ color: "gray" }}>
+            {skills.map((skill, i) => (
+              <Box key={i} component="span" sx={styles.yellowText}>
+                {skill}
+                {i !== skills.length - 1 && (
+                  <Box component="span" sx={styles.grayText}>
                     {"', "}
                   </Box>
                 )}
-              </>
+              </Box>
             ))}
-
-            <Box component="span" sx={{ color: "gray" }}>
+            <Box component="span" sx={styles.grayText}>
               {" ],"}
             </Box>
           </Typography>
-          {qualities.map((quality) => (
-            <Typography component="div" sx={{ ml: { xs: 2, lg: 4 } }}>
-              <Box component="span" sx={{ color: "white", mr: 1 }}>
+
+          {/* qualities */}
+          {qualities.map((quality, i) => (
+            <Typography key={i} component="div" sx={styles.indent1}>
+              <Box component="span" sx={styles.whiteText}>
                 {quality}
               </Box>
-              <Box component="span" sx={{ color: "orange" }}>
+              <Box component="span" sx={styles.orangeText}>
                 true
               </Box>
               ,
@@ -265,74 +154,73 @@ const FirstSection = () => {
           ))}
 
           {/* hireable */}
-          <Typography component="div" sx={{ ml: { xs: 2, lg: 4 } }}>
-            <Box component="span" sx={{ color: "green" }}>
+          <Typography component="div" sx={styles.indent1}>
+            <Box component="span" sx={styles.greenText}>
               hireable:
-            </Box>{" "}
-            <Box component="span" sx={{ color: "orange" }}>
+            </Box>
+            <Box component="span" sx={styles.orangeText}>
               function
-            </Box>{" "}
-            <Box component="span" sx={{ color: "gray" }}>
+            </Box>
+            <Box component="span" sx={styles.grayText}>
               {"() {"}
             </Box>
           </Typography>
-          <Typography component="div" sx={{ ml: { xs: 4, lg: 8 } }}>
-            <Box component="span" sx={{ color: "orange", mr: 1 }}>
+
+          <Typography component="div" sx={styles.indent2}>
+            <Box component="span" sx={styles.orangeText}>
               return
             </Box>
-            <Box component="span" sx={{ color: "gray" }}>
+            <Box component="span" sx={styles.grayText}>
               {"("}
             </Box>
           </Typography>
-          <Typography component="div" sx={{ ml: { xs: 6, lg: 12 } }}>
-            <Box component="span" sx={{ color: "cyan" }}>
+
+          <Typography component="div" sx={styles.indent3}>
+            <Box component="span" sx={styles.cyanText}>
               this.
             </Box>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+            <Box component="span" sx={styles.whiteText}>
               hardWorker
             </Box>
-            <Box component="span" sx={{ color: "#fcd34d" }}>
+            <Box component="span" sx={styles.yellowText}>
               &&
             </Box>
           </Typography>
-          <Typography component="div" sx={{ ml: { xs: 6, lg: 12 } }}>
-            <Box component="span" sx={{ color: "cyan" }}>
+
+          <Typography component="div" sx={styles.indent3}>
+            <Box component="span" sx={styles.cyanText}>
               this.
             </Box>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+            <Box component="span" sx={styles.whiteText}>
               problemSolver
             </Box>
-            <Box component="span" sx={{ color: "#fcd34d" }}>
+            <Box component="span" sx={styles.yellowText}>
               &&
             </Box>
           </Typography>
-          <Typography component="div" sx={{ ml: { xs: 6, lg: 12 } }}>
-            <Box component="span" sx={{ color: "cyan" }}>
+
+          <Typography component="div" sx={styles.indent3}>
+            <Box component="span" sx={styles.cyanText}>
               this.
             </Box>
-            <Box component="span" sx={{ color: "white", mr: 1 }}>
+            <Box component="span" sx={styles.whiteText}>
               skills.length
             </Box>
-            <Box component="span" sx={{ color: "#fcd34d", mr: 1 }}>
+            <Box component="span" sx={styles.yellowText}>
               &gt;=
             </Box>
-            <Box component="span" sx={{ color: "orange" }}>
+            <Box component="span" sx={styles.orangeText}>
               5
             </Box>
           </Typography>
-          <Typography
-            component="div"
-            sx={{ ml: { xs: 4, lg: 8 }, color: "gray" }}
-          >
+
+          <Typography component="div" sx={styles.indent2Gray}>
             {");"}
           </Typography>
-          <Typography
-            component="div"
-            sx={{ ml: { xs: 2, lg: 4 }, color: "gray" }}
-          >
+          <Typography component="div" sx={styles.indent1Gray}>
             {"};"}
           </Typography>
-          <Typography component="div" sx={{ color: "gray" }}>
+          <Typography component="div" sx={styles.grayText}>
             {"};"}
           </Typography>
         </Box>

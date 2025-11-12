@@ -5,6 +5,11 @@ import AnimationLottie from "../../components/helper/animation-lottie";
 import GlowCard from "../../components/helper/glow-card";
 import experienceAnimation from "../../assets/lottie/code.json";
 import Blur23 from "../../assets/svgs/experience/blur-23.svg";
+import { styles } from "./styles";
+
+// ---- Styles Object ----
+
+// ---- Interface ----
 interface Experience {
   id: number;
   title: string;
@@ -12,6 +17,7 @@ interface Experience {
   duration: string;
 }
 
+// ---- Experience Data ----
 const experiences: Experience[] = [
   {
     id: 1,
@@ -33,99 +39,43 @@ const experiences: Experience[] = [
   },
 ];
 
+// ---- Component ----
 const Experiences: React.FC = () => {
   return (
-    <Box
-      sx={{
-        py: "10%",
-        mt: { xs: "10%", md: "0%" },
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        position: "relative",
-        borderTop: "1px solid #25213b",
-        borderBottom: "1px solid #25213b",
-      }}
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          left: "50%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          transform: "translate(-50%, -50%)",
-          top: { xs: "0%", md: "30px" },
-        }}
-      >
-        <Typography
-          sx={{
-            fontWeight: 400,
-            bgcolor: "#1a1443",
-            fontSize: "18px",
-            px: 2,
-            py: 1.1,
-            borderRadius: 2,
-          }}
-        >
-          Experiences
-        </Typography>
-        <Box
-          sx={{
-            width: 250,
-            height: 5,
-            bgcolor: "#1a1443",
-            position: "absolute",
-            zIndex: "-1",
-          }}
-        />
+    <Box sx={styles.container}>
+      {/* Title */}
+      <Box sx={styles.titleWrapper}>
+        <Typography sx={styles.titleText}>Experiences</Typography>
+        <Box sx={styles.titleLine} />
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: { xs: "100%", md: "50%" },
-        }}
-      >
+      {/* Animation Section */}
+      <Box sx={styles.leftSection}>
         <AnimationLottie animationPath={experienceAnimation} />
       </Box>
 
-      <Box
-        sx={{
-          width: { xs: "100%", md: "50%" },
-        }}
-      >
+      {/* Experience Cards */}
+      <Box sx={styles.rightSection}>
         <Stack spacing={2}>
           {experiences.map((experience) => (
             <GlowCard
               key={experience.id}
               identifier={`experience-${experience.id}`}
             >
-              <Box px={3} py={1} position="relative">
+              <Box sx={styles.glowCardBox}>
                 <Box
                   component="img"
                   src={Blur23}
                   alt="Hero"
-                  sx={{
-                    position: "absolute",
-                    bottom: 0,
-                    opacity: 0.8,
-                    width: "100%",
-                    height: "100%",
-                  }}
+                  sx={styles.blurBg}
                 />
 
-                <Box display="flex" justifyContent="center">
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: { xs: "0.75rem", sm: "0.875rem" },
-                      color: "#16f2b3",
-                    }}
-                  >
+                <Box sx={styles.durationBox}>
+                  <Typography variant="body2" sx={styles.durationText}>
                     {experience.duration}
                   </Typography>
                 </Box>
+
                 <Stack
                   direction="row"
                   alignItems="center"
@@ -133,34 +83,14 @@ const Experiences: React.FC = () => {
                   px={3}
                   py={3}
                 >
-                  <Box
-                    sx={{
-                      color: "#8b5cf6",
-                      transition: "all 0.3s ease",
-                      "&:hover": { transform: "scale(1.25)" },
-                    }}
-                  >
+                  <Box sx={styles.icon}>
                     <BsPersonWorkspace size={36} />
                   </Box>
                   <Box>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontSize: { xs: "1rem", sm: "1.25rem" },
-                        mb: 1,
-                        textTransform: "uppercase",
-                        color: "white",
-                      }}
-                    >
+                    <Typography variant="h6" sx={styles.jobTitle}>
                       {experience.title}
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: { xs: "0.875rem", sm: "1rem" },
-                        color: "white",
-                      }}
-                    >
+                    <Typography variant="body2" sx={styles.company}>
                       {experience.company}
                     </Typography>
                   </Box>
