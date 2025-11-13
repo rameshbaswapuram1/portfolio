@@ -3,7 +3,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import { BsPersonWorkspace } from "react-icons/bs";
 import AnimationLottie from "../../components/helper/animation-lottie";
 import GlowCard from "../../components/helper/glow-card";
-import experienceAnimation from "../../assets/lottie/code.json";
+import lottieFile from "../../assets/lottie/study.json";
+
 import Blur23 from "../../assets/svgs/experience/blur-23.svg";
 import styles from "./styles";
 
@@ -44,7 +45,7 @@ const Experiences: React.FC = () => {
       </Box>
 
       <Box sx={styles.leftSection}>
-        <AnimationLottie animationPath={experienceAnimation} />
+        <AnimationLottie animationPath={lottieFile} />
       </Box>
 
       <Box sx={styles.rightSection}>
