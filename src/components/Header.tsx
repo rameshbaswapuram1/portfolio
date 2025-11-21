@@ -28,7 +28,7 @@ function MobileMenu() {
   return (
     <>
       <Drawer anchor="right" open={open} onClose={handleOnCose}>
-        <List>
+        <List sx={{ backgroundColor: "#2a2e5a", height: "100%" }}>
           {navs.map((nav) => (
             <ListItem
               key={nav.navItem}
