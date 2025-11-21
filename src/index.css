@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --background-color: #0d1224;
+  --primary-color: #16f2b3;
+  --secondary-color: #ec4899;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.glow-container {
+  --spread: 60;
+}
+
+.glow-card {
+  --active: 0.15;
+  --start: 0;
+  position: relative;
+  border: 2px solid #2a2e5a;
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.glow-card:is(:hover, :focus-visible) {
+  z-index: 2;
+}
+
+.glows {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  filter: blur(calc(var(--blur) * 1px));
+}
+
+/* Glow gradient background */
+.glows::after,
+.glows::before {
+  --alpha: 0;
+  content: "";
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    #f626af 0deg,
+    #8228ec 72deg,
+    #f626af 144deg,
+    #0025ba 216deg,
+    #f626af 288deg,
+    #fafafa 360deg
+  );
+  background-attachment: fixed;
+  position: absolute;
+  inset: -5px;
+  box-shadow: 0 0 20px rgba(130, 40, 236, 0.7),
+    inset 0 0 10px rgba(246, 38, 175, 0.6);
+  border: 8px solid transparent;
+  border-radius: 12px;
+  -webkit-mask: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - (var(--spread) * 0.5)) * 1deg),
+      #000 0deg,
+      #fff,
+      #0000 calc(var(--spread) * 1deg)
+    );
+  -webkit-mask-composite: destination-in;
+  mask-clip: padding-box, border-box;
+  opacity: var(--active);
+  transition: opacity 0.4s;
+}
+
+/* Inner subtle glow */
+.glow-card::before {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  content: "";
+  border-radius: 12px;
+  pointer-events: none;
+  background: #84738c;
+  background-attachment: fixed;
+  -webkit-mask: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from
+        calc(
+          ((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) *
+            1deg
+        ),
+      #ffffff26 0deg,
+      white,
+      #ffffff26 calc(var(--spread) * 2.5deg)
+    );
+  -webkit-mask-composite: destination-in;
+  mask-clip: padding-box, border-box;
+  opacity: var(--active);
+  transition: opacity 0.4s;
+}
+
+/* Outer glow */
+.glow-card::after {
+  --bg-size: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    #f626af 0deg,
+    #8228ec 72deg,
+    #f626af 144deg,
+    #0025ba 216deg,
+    #f626af 288deg,
+    #fafafa 360deg
+  );
+  background-attachment: fixed;
+  border-radius: 12px;
+  opacity: var(--active, 0);
+  transition: opacity 0.4s;
+  inset: 0;
+  border: 2px solid transparent;
+  -webkit-mask: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from
+        calc(
+          ((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) *
+            1deg
+        ),
+      #0000 0deg,
+      #fff,
+      #0000 calc(var(--spread) * 0.5deg)
+    );
+  filter: brightness(1.5);
+  -webkit-mask-composite: destination-in;
+  mask-clip: padding-box, border-box;
+}
+#sticky-card-1 {
+  --index: 1;
+}
+
+#sticky-card-2 {
+  --index: 2;
+}
+
+#sticky-card-3 {
+  --index: 3;
+}
+
+#sticky-card-4 {
+  --index: 4;
+}
+
+.sticky-card {
+  position: sticky;
+  top: calc(var(--index) * 4rem);
+}

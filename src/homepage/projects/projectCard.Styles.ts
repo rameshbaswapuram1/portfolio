@@ -1,0 +1,100 @@
+ 
+ 
+export const styles = {
+  container: {
+    width: "100%",
+    position: "relative",
+    borderRadius: "12px",
+    border: "1px solid #1b2c68a0",
+    background: "linear-gradient(to right, #0d1224, #0a0d37)",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "1px",
+      borderTopLeftRadius: "12px",
+      borderTopRightRadius: "12px",
+      background:
+        "linear-gradient(to right, transparent, #ec4899, #7c3aed, transparent)",
+    },
+  },
+  gradientLineTop: {
+    height: 1,
+    flex: 1,
+    background: "linear-gradient(to right, transparent, #ec4899, #7c3aed)",
+  },
+  gradientLineBottom: {
+    height: 1,
+    flex: 1,
+    background: "linear-gradient(to right, #7c3aed, transparent)",
+  },
+  header: {
+    px: { xs: 2, lg: 4 },
+    py: { xs: 1.5, lg: 2.5 },
+    position: "relative",
+  },
+  trafficLights: {
+    display: "flex",
+    flexDirection: "row",
+    gap: { xs: 0.25, lg: 0.5 },
+    position: "absolute",
+    top: "50%",
+    left: 0,
+    transform: "translateY(-50%)",
+    pl: 2,
+  },
+  redDot: {
+    width: { xs: 8, lg: 12 },
+    height: { xs: 8, lg: 12 },
+    borderRadius: "50%",
+    backgroundColor: "#f87171",
+  },
+  orangeDot: {
+    width: { xs: 8, lg: 12 },
+    height: { xs: 8, lg: 12 },
+    borderRadius: "50%",
+    backgroundColor: "#fb923c",
+  },
+  greenDot: {
+    width: { xs: 8, lg: 12 },
+    height: { xs: 8, lg: 12 },
+    borderRadius: "50%",
+    backgroundColor: "#bbf7d0",
+  },
+  projectTitle: {
+    textAlign: "center",
+    ml: 1.5,
+    color: "#16f2b3",
+    fontSize: { xs: "1rem", lg: "1.25rem" },
+    fontWeight: 400,
+  },
+  codeBlock: {
+    display: "block",
+    borderTop: "2px solid #312e81",
+    px: { xs: 2, lg: 4 },
+    py: { xs: 2, lg: 4 },
+    overflow: "hidden",
+    fontFamily:
+      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    fontSize: { xs: "0.75rem", md: "0.875rem", lg: "1rem" },
+    lineHeight: 1.7,
+    whiteSpace: "pre-wrap",
+    color: "white",
+  },
+  caretLine: {
+    display: "inline-flex",
+    alignItems: "center",
+    position: "relative",
+    pr: 1,
+   
+  },
+  pink: { color: "#ec4899" },
+  white: { color: "#ffffff" },
+  gray: { color: "#9ca3af" },
+  amber: { color: "#fcd34d" },
+  orange: { color: "#fb923c" },
+  cyan: { color: "#22d3ee" },
+  lineIndent: { ml: { xs: 2, lg: 4 } },
+};
