@@ -21,6 +21,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import React from "react";
+import LanguageChange from "./LanguageChange";
 
 function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -48,8 +49,11 @@ function MobileMenu() {
           ))}
         </List>
       </Drawer>
-      <Box onClick={() => setOpen(!open)} sx={styles.amberButton(open)}>
-        <span /> <span /> <span />
+      <Box sx={styles.mobileBox}>
+        <LanguageChange />
+        <Box onClick={() => setOpen(!open)} sx={styles.amberButton(open)}>
+          <span /> <span /> <span />
+        </Box>
       </Box>
     </>
   );
@@ -61,6 +65,7 @@ const Header = () => {
       <Typography sx={styles.logoText}>B Ramesh</Typography>
       <MobileMenu />
       <Box component="nav" sx={styles.navContainer}>
+        <LanguageChange />
         {navs.map((nav) => (
           <Typography
             href={nav.href}
@@ -78,6 +83,11 @@ const Header = () => {
 
 export default Header;
 const styles = {
+  mobileBox: {
+    display: { xs: "flex", md: "none" },
+    alignItems: "center",
+    gap: 2,
+  },
   listItem: {
     "& .MuiListItemIcon-root": { minWidth: "40px" },
     "& .MuiTypography-root": {
@@ -143,6 +153,7 @@ const styles = {
     width: "50%",
     display: { xs: "none", md: "flex" },
     justifyContent: "end",
+    alignItems: "center",
   },
   navItem: {
     fontSize: "14px",
