@@ -1,0 +1,42 @@
+{
+  "logo": "B Ramesh",
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+ "hero": {
+    "hello": "Hello",
+    "thisIs": "This is",
+    "imProfessional": "I'm a professional",
+    "softwareEngineer": "Software Engineer",
+    "callMe": "Call Me",
+    "getResume": "Get Resume",
+    "qualities": {
+      "hardWorker": "hard worker",
+      "quickLearner": "quick learner",
+      "problemSolver": "problem solver",
+      "teamPlayer": "team player"
+    },
+    "coder": {
+      "name": "B Ramesh",
+      "skills": [
+        "Html",
+        "CSS",
+        "Javascript",
+        "Typescript",
+        "React JS",
+        "React-redux-toolkit",
+        "Material UI"
+      ],
+      "hardWorker": true,
+      "quickLearner": true,
+      "problemSolver": true,
+      "teamPlayer": true,
+      "hireableStatus": "Hireable"
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { CiGlobe } from "react-icons/ci";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React from "react";
+import { useTranslation } from "react-i18next";
 const LanguageChange = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -12,6 +13,14 @@ const LanguageChange = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    handleClose();
+  };
+
   return (
     <div>
       <IconButton
@@ -35,9 +44,9 @@ const LanguageChange = () => {
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={() => changeLanguage("en")}>English</MenuItem>
+        <MenuItem onClick={() => changeLanguage("de")}>Deutsch</MenuItem>
+        <MenuItem onClick={() => changeLanguage("ja")}>日本語</MenuItem>
       </Menu>
     </div>
   );

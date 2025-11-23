@@ -1,79 +1,39 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
 import { BiInfoCircle } from "react-icons/bi";
 import { MdWorkOutline, MdOutlineContactMail } from "react-icons/md";
 import { GiSkills } from "react-icons/gi";
 import { PiStudentFill } from "react-icons/pi";
 import { AiOutlineProject } from "react-icons/ai";
 const navs = [
-  { navItem: "ABOUT", href: "#about", icon: <BiInfoCircle /> },
-  { navItem: "EXPERIENCE", href: "#experience", icon: <MdWorkOutline /> },
-  { navItem: "SKILLS", href: "#skills", icon: <GiSkills /> },
-  { navItem: "EDUCATION", href: "#education", icon: <PiStudentFill /> },
-  { navItem: "PROJECTS", href: "#projects", icon: <AiOutlineProject /> },
-  { navItem: "CONTACT", href: "#contact", icon: <MdOutlineContactMail /> },
+  { navItem: "about", href: "#about", icon: <BiInfoCircle /> },
+  { navItem: "experience", href: "#experience", icon: <MdWorkOutline /> },
+  { navItem: "skills", href: "#skills", icon: <GiSkills /> },
+  { navItem: "education", href: "#education", icon: <PiStudentFill /> },
+  { navItem: "projects", href: "#projects", icon: <AiOutlineProject /> },
+  { navItem: "contact", href: "#contact", icon: <MdOutlineContactMail /> },
 ];
 
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import React from "react";
 import LanguageChange from "./LanguageChange";
-
-function MobileMenu() {
-  const [open, setOpen] = useState(false);
-  const handleOnCose = () => setOpen(!open);
-  return (
-    <>
-      <Drawer anchor="right" open={open} onClose={handleOnCose}>
-        <List sx={{ backgroundColor: "#2a2e5a", height: "100%" }}>
-          {navs.map((nav) => (
-            <ListItem
-              key={nav.navItem}
-              disablePadding
-              href={nav.href}
-              component={"a"}
-              onClick={handleOnCose}
-              sx={styles.listItem}
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  {React.cloneElement(nav.icon, { size: 20 })}
-                </ListItemIcon>
-                <ListItemText primary={nav.navItem} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box sx={styles.mobileBox}>
-        <LanguageChange />
-        <Box onClick={() => setOpen(!open)} sx={styles.amberButton(open)}>
-          <span /> <span /> <span />
-        </Box>
-      </Box>
-    </>
-  );
-}
+import MobileMenu from "./MobileMenu";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <Box component="header" id="/" sx={styles.headerContainer}>
-      <Typography sx={styles.logoText}>B Ramesh</Typography>
+      <Typography sx={styles.logoText}>{t("logo")}</Typography>
       <MobileMenu />
       <Box component="nav" sx={styles.navContainer}>
         <LanguageChange />
         {navs.map((nav) => (
           <Typography
-            href={nav.href}
-            component={"a"}
             key={nav.navItem}
+            href={nav.href}
+            component="a"
             sx={styles.navItem}
           >
-            {nav.navItem}
+            {t(`nav.${nav.navItem}`)}
           </Typography>
         ))}
       </Box>
@@ -83,60 +43,6 @@ const Header = () => {
 
 export default Header;
 const styles = {
-  mobileBox: {
-    display: { xs: "flex", md: "none" },
-    alignItems: "center",
-    gap: 2,
-  },
-  listItem: {
-    "& .MuiListItemIcon-root": { minWidth: "40px" },
-    "& .MuiTypography-root": {
-      color: "white",
-      fontSize: "14px",
-    },
-    "& .MuiListItemIcon-root svg": {
-      color: "white",
-      transition: "color 0.3s",
-    },
-    "&:hover": {
-      "& .MuiTypography-root": {
-        color: "tomato",
-      },
-      "& .MuiListItemIcon-root svg": {
-        color: "tomato",
-      },
-    },
-  },
-  amberButton: (open: boolean) => ({
-    width: 30,
-    height: 24,
-    cursor: "pointer",
-    position: "relative",
-    display: { xs: "flex", md: "none" },
-    flexDirection: "column",
-    justifyContent: "space-between",
-    "& span": {
-      width: "100%",
-      height: "3px",
-      backgroundColor: "white",
-      borderRadius: "3px",
-      transition: "0.4s",
-      position: "absolute",
-    },
-    "& span:nth-of-type(1)": {
-      top: 0,
-      transform: open ? "translateY(10px) rotate(45deg)" : "none",
-    },
-    "& span:nth-of-type(2)": {
-      top: "10px",
-      opacity: open ? 0 : 1,
-      transform: "scaleX(0.8)", // slightly shorter (modern feel)
-    },
-    "& span:nth-of-type(3)": {
-      bottom: 0,
-      transform: open ? "translateY(-11px) rotate(-45deg)" : "none",
-    },
-  }),
   headerContainer: {
     display: "flex",
     justifyContent: "space-between",

@@ -3,50 +3,43 @@ import { helloText, styles as sharedStyles, styles } from "./styles";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { MdDownload } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 const accounts = [
   { link: "", icon: <BsGithub size={30} /> },
   { link: "", icon: <BsLinkedin size={30} /> },
 ];
 
-const skills = [
-  "Html",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "React JS",
-  "React-redux-toolkit",
-  "Material UI",
-];
-
-const qualities = [
-  "hardWorker:",
-  "quickLearner:",
-  "problemSolver:",
-  "teamPlayer:",
-];
-const resume =
-  "https://drive.google.com/file/d/1IteReyDQcxoe-bNbmJoohLErYivLh6gX/view?usp=drive_link";
 const HeroSection = () => {
+  const { t } = useTranslation();
+
+  const skills = t("hero.coder.skills", { returnObjects: true }) as string[];
+  const qualities = t("hero.qualities", { returnObjects: true }) as Record<
+    string,
+    string
+  >;
+
   return (
     <Box sx={styles.container}>
       <Box sx={styles.leftSection}>
-        <Typography sx={helloText()}>Hello,</Typography>
+        <Typography sx={helloText()}>{t("hero.hello")}</Typography>
         <Typography component="span" sx={helloText()}>
-          This is
+          {t("hero.thisIs")}
         </Typography>
         <Typography component="span" sx={helloText("secondary")}>
-          {" B Ramesh"}
+          {" "}
+          B Ramesh
         </Typography>
         <Typography component="span" sx={helloText()}>
-          {". I'm a Professional "}
+          {t("hero.imProfessional")}
         </Typography>
         <Typography component="span" sx={helloText("primary")}>
-          Software Engineer
+          {t("hero.softwareEngineer")}
         </Typography>
         <Typography component="span" sx={helloText("primary")}>
           .
         </Typography>
+
         <Box sx={styles.socialLinks}>
           {accounts.map((account, i) => (
             <Typography key={i} component="a" sx={sharedStyles.anchoreLink}>
@@ -54,6 +47,7 @@ const HeroSection = () => {
             </Typography>
           ))}
         </Box>
+
         <Box sx={styles.buttonsContainer}>
           <Typography
             component="a"
@@ -62,22 +56,24 @@ const HeroSection = () => {
           >
             <Button sx={styles.contactButton}>
               <BsFillTelephoneFill size={16} />
-              <span>Call me</span>
+              <span>{t("hero.callMe")}</span>
             </Button>
           </Typography>
+
           <Typography
             target="_blank"
             download
             component="a"
-            href={resume}
+            href="https://drive.google.com/file/d/1IteReyDQcxoe-bNbmJoohLErYivLh6gX/view?usp=drive_link"
             role="button"
             sx={styles.resumeButton}
           >
             <MdDownload size={16} />
-            <Box component="span">Get Resume</Box>
+            <Box component="span">{t("hero.getResume")}</Box>
           </Typography>
         </Box>
       </Box>
+
       <Box sx={styles.rightSection}>
         <Box sx={styles.windowHeader}>
           <Box sx={styles.windowDotsContainer}>
@@ -86,6 +82,7 @@ const HeroSection = () => {
             <Box sx={styles.greenDot} />
           </Box>
         </Box>
+
         <Box sx={styles.codeBox}>
           <Typography component="div">
             <Box component="span" sx={styles.pinkText}>
@@ -101,6 +98,7 @@ const HeroSection = () => {
               {"{"}
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent1}>
             <Box component="span" sx={styles.whiteText}>
               name:
@@ -109,37 +107,40 @@ const HeroSection = () => {
               '
             </Box>
             <Box component="span" sx={styles.yellowText}>
-              B Ramesh
+              {t("hero.coder.name")}
             </Box>
             <Box component="span" sx={styles.grayText}>
-              ',
+              ,
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent1}>
             <Box component="span" sx={styles.whiteText}>
               skills:
             </Box>
             <Box component="span" sx={styles.grayText}>
-              ['
+              [ '
             </Box>
             {skills.map((skill, i) => (
               <Box key={i} component="span" sx={styles.yellowText}>
                 {skill}
                 {i !== skills.length - 1 && (
                   <Box component="span" sx={styles.grayText}>
-                    {"', "}
+                    ',{" "}
                   </Box>
                 )}
               </Box>
             ))}
             <Box component="span" sx={styles.grayText}>
-              {" ],"}
+              {" "}
+              ],
             </Box>
           </Typography>
-          {qualities.map((quality, i) => (
-            <Typography key={i} component="div" sx={styles.indent1}>
+
+          {Object.entries(qualities).map(([key, value]) => (
+            <Typography key={key} component="div" sx={styles.indent1}>
               <Box component="span" sx={styles.whiteText}>
-                {quality}
+                {value}
               </Box>
               <Box component="span" sx={styles.orangeText}>
                 true
@@ -147,6 +148,7 @@ const HeroSection = () => {
               ,
             </Typography>
           ))}
+
           <Typography component="div" sx={styles.indent1}>
             <Box component="span" sx={styles.greenText}>
               hireable:
@@ -158,6 +160,7 @@ const HeroSection = () => {
               {"() {"}
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent2}>
             <Box component="span" sx={styles.orangeText}>
               return
@@ -166,6 +169,7 @@ const HeroSection = () => {
               {"("}
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent3}>
             <Box component="span" sx={styles.cyanText}>
               this.
@@ -177,6 +181,7 @@ const HeroSection = () => {
               &&
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent3}>
             <Box component="span" sx={styles.cyanText}>
               this.
@@ -188,6 +193,7 @@ const HeroSection = () => {
               &&
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent3}>
             <Box component="span" sx={styles.cyanText}>
               this.
@@ -202,6 +208,7 @@ const HeroSection = () => {
               5
             </Box>
           </Typography>
+
           <Typography component="div" sx={styles.indent2Gray}>
             {");"}
           </Typography>

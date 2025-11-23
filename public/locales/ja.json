@@ -1,0 +1,42 @@
+{
+  "logo": "B Ramesh",
+  "nav": {
+    "about": "紹介",
+    "experience": "経験",
+    "skills": "スキル",
+    "education": "学歴",
+    "projects": "プロジェクト",
+    "contact": "お問い合わせ"
+  },
+ "hero": {
+    "hello": "こんにちは",
+    "thisIs": "こちらは",
+    "imProfessional": "私はプロフェッショナルです",
+    "softwareEngineer": "ソフトウェアエンジニア",
+    "callMe": "電話する",
+    "getResume": "履歴書を取得",
+    "qualities": {
+      "hardWorker": "勤勉",
+      "quickLearner": "学習が早い",
+      "problemSolver": "問題解決者",
+      "teamPlayer": "チームプレイヤー"
+    },
+    "coder": {
+      "name": "B Ramesh",
+      "skills": [
+        "Html",
+        "CSS",
+        "Javascript",
+        "Typescript",
+        "React JS",
+        "React-Redux-Toolkit",
+        "Material UI"
+      ],
+      "hardWorker": true,
+      "quickLearner": true,
+      "problemSolver": true,
+      "teamPlayer": true,
+      "hireableStatus": "雇用可能"
+    }
+  }
+}
