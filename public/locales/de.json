@@ -8,7 +8,7 @@
     "projects": "Projekte",
     "contact": "Kontakt"
   },
-   "hero": {
+  "hero": {
     "hello": "Hallo",
     "thisIs": "Das ist",
     "imProfessional": "Ich bin ein Profi",
@@ -23,15 +23,6 @@
     },
     "coder": {
       "name": "B Ramesh",
-      "skills": [
-        "Html",
-        "CSS",
-        "Javascript",
-        "Typescript",
-        "React JS",
-        "React-Redux-Toolkit",
-        "Material UI"
-      ],
       "hardWorker": true,
       "quickLearner": true,
       "problemSolver": true,

@@ -13,7 +13,15 @@ const accounts = [
 const HeroSection = () => {
   const { t } = useTranslation();
 
-  const skills = t("hero.coder.skills", { returnObjects: true }) as string[];
+  const skills = [
+    "Html",
+    "CSS",
+    "Javascript",
+    "Typescript",
+    "React JS",
+    "React-Redux-Toolkit",
+    "Material UI",
+  ];
   const qualities = t("hero.qualities", { returnObjects: true }) as Record<
     string,
     string
