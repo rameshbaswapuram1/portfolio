@@ -4,24 +4,25 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { MdDownload } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
+import { links } from "../../utils/utils";
 
 const accounts = [
-  { link: "", icon: <BsGithub size={30} /> },
-  { link: "", icon: <BsLinkedin size={30} /> },
+  { link: links.github, icon: <BsGithub size={30} /> },
+  { link: links.linkedIn, icon: <BsLinkedin size={30} /> },
 ];
 
+const skills = [
+  "Html",
+  "CSS",
+  "Javascript",
+  "Typescript",
+  "React JS",
+  "React-Redux-Toolkit",
+  "Material UI",
+];
 const HeroSection = () => {
   const { t } = useTranslation();
 
-  const skills = [
-    "Html",
-    "CSS",
-    "Javascript",
-    "Typescript",
-    "React JS",
-    "React-Redux-Toolkit",
-    "Material UI",
-  ];
   const qualities = t("hero.qualities", { returnObjects: true }) as Record<
     string,
     string
@@ -49,8 +50,14 @@ const HeroSection = () => {
         </Typography>
 
         <Box sx={styles.socialLinks}>
-          {accounts.map((account, i) => (
-            <Typography key={i} component="a" sx={sharedStyles.anchoreLink}>
+          {accounts.map((account) => (
+            <Typography
+              key={account.link}
+              target="_blank"
+              href={account.link}
+              component="a"
+              sx={sharedStyles.anchoreLink}
+            >
               {account.icon}
             </Typography>
           ))}
@@ -72,7 +79,7 @@ const HeroSection = () => {
             target="_blank"
             download
             component="a"
-            href="https://drive.google.com/file/d/1IteReyDQcxoe-bNbmJoohLErYivLh6gX/view?usp=drive_link"
+            href={links.resumeDrive}
             role="button"
             sx={styles.resumeButton}
           >

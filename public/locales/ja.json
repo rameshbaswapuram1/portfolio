@@ -10,9 +10,9 @@
   },
   "hero": {
     "hello": "こんにちは",
-    "thisIs": "こちらは",
-    "imProfessional": "私はプロフェッショナルです",
-    "softwareEngineer": "ソフトウェアエンジニア",
+    "thisIs": "こちらは ",
+    "imProfessional": " 私はプロフェッショナルです ",
+    "softwareEngineer": " ソフトウェアエンジニア ",
     "callMe": "電話する",
     "getResume": "履歴書を取得",
     "qualities": {
@@ -29,5 +29,143 @@
       "teamPlayer": true,
       "hireableStatus": "雇用可能"
     }
+  },
+  "about": {
+    "subHeading": "私について",
+    "description": "私の名前はB. Rameshです。JavaScriptや最新のWeb技術を専門とする情熱的で成果志向のソフトウェアエンジニアです。私は学習が早く、自己学習の姿勢が強く、新しい技術を探求することに深い関心を持っています。複雑な問題を解決し、高品質でスケーラブルなWebアプリケーションを構築することに熱心です。JavaScriptは私の強みです。自分のスキル、興味、成長マインドに合った機会にオープンであり、影響力のあるプロジェクトに貢献することに常に意欲的です。",
+    "label": "私について",
+    "cardText": "機会にオープン"
+  },
+  "experience": {
+    "title": "職務経験",
+    "positions": [
+      {
+        "title": "リードエンジニア",
+        "company": "HCLTech",
+        "duration": "(2025年2月 - 現在)"
+      },
+      {
+        "title": "ジュニアソフトウェアエンジニア",
+        "company": "Extended Web AppTech LLP",
+        "duration": "(2023年10月 - 2025年1月)"
+      },
+      {
+        "title": "フルスタック開発者",
+        "company": "Gincat Software Solutions LLP",
+        "duration": "(2022年8月 - 2023年9月)"
+      },
+      {
+        "title": "コンテンツ管理アドバイザー",
+        "company": "Data Core Technologies Limited",
+        "duration": "(2021年12月 - 2022年8月)"
+      }
+    ]
+  },
+  "skills": {
+    "title": "スキル"
+  },
+
+  "projects": {
+    "title": "プロジェクト",
+    "list": [
+      {
+        "name": "Digital Signage Advertisement Platform",
+        "description": "公共スクリーン上での動的広告キャンペーンのためのスケーラブルなプラットフォームを設計・開発しました。役割ベースのワークフロー、高度なダッシュボード、安全なOTP認証を備えています。キャンペーン作成、支払い統合、リアルタイム分析を効率化しました。",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "ジュニアソフトウェアエンジニア"
+      },
+      {
+        "name": "Express Bus Application",
+        "description": "Extended Expressは、顧客、ドライバー、管理者のための旅行管理を効率化する強力なバス予約プラットフォームです。リアルタイム検索、座席選択、貨物追跡でシームレスな体験を提供します。",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "ジュニアソフトウェアエンジニア"
+      },
+      {
+        "name": "Teja Organic Application",
+        "description": "Teja Organicはオーガニック製品のためのEコマースプラットフォームで、顧客、販売者、管理者、配達員に対応しています。シームレスなショッピング、詳細な分析、製品・注文・配送の包括的な管理ツールを提供します。",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "ジュニアソフトウェアエンジニア"
+      },
+      {
+        "name": "Report Builder",
+        "description": "Report Builderは、スーパ管理者、管理者、ユーザーの役割に基づいたアプリケーションです。ユーザー管理、データベース操作、クエリ実行、データエクスポートワークフローを提供します。それぞれの役割は、安全かつ効率的な操作を保証します。",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "Tailwind CSS",
+          "React-Redux-toolkit"
+        ],
+        "role": "フルスタック開発者"
+      }
+    ]
+  },
+  "education": {
+    "title": "学歴",
+    "list": [
+      {
+        "id": 1,
+        "title": "学士号",
+        "duration": "2016 - 2019",
+        "institution": "オスマニア大学"
+      },
+      {
+        "id": 2,
+        "title": "高等学校卒業証書",
+        "duration": "2014 - 2016",
+        "institution": "スカラーズ・ジュニア・カレッジ"
+      },
+      {
+        "id": 3,
+        "title": "中等学校卒業証書",
+        "duration": "2013 - 2016",
+        "institution": "政府立高校"
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "お問い合わせ",
+    "subHeading": "私に連絡する",
+    "subText": "ご質問やご不明な点がございましたら、お気軽にご連絡ください。私のスキルや興味に合った仕事の機会には常にオープンです。",
+    "labels": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "sendButton": "メッセージを送信"
+    },
+    "errors": {
+      "invalidEmail": "有効なメールアドレスを入力してください！",
+      "required": "すべての項目を入力してください！"
+    },
+    "personalData": {
+      "email": "rameshbaswapuram1@gmail.com",
+      "phone": "+91 9701378218",
+      "address": "ハイデラバード、テランガーナ、インド",
+      "github": "https://github.com/yourprofile",
+      "linkedIn": "https://linkedin.com/in/yourprofile",
+      "stackOverflow": "https://stackoverflow.com/users/24862926/ramesh-goud"
+    }
+  },
+  "footer": {
+    "portfolioBy": "ポートフォリオ作成者",
+    "star": "スター"
   }
 }

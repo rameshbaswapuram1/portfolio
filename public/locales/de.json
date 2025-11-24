@@ -10,9 +10,9 @@
   },
   "hero": {
     "hello": "Hallo",
-    "thisIs": "Das ist",
-    "imProfessional": "Ich bin ein Profi",
-    "softwareEngineer": "Softwareentwickler",
+    "thisIs": "Das ist ",
+    "imProfessional": " Ich bin ein Profi ",
+    "softwareEngineer": " Softwareentwickler ",
     "callMe": "Rufen Sie mich an",
     "getResume": "Lebenslauf herunterladen",
     "qualities": {
@@ -29,5 +29,144 @@
       "teamPlayer": true,
       "hireableStatus": "Einsetzbar"
     }
+  },
+  "about": {
+    "subHeading": "WER BIN ICH?",
+    "description": "Mein Name ist B. Ramesh, ein leidenschaftlicher und ergebnisorientierter Softwareentwickler mit Schwerpunkt auf JavaScript und modernen Webtechnologien. Ich lerne schnell, habe eine starke Selbstlern-Einstellung und ein tiefes Interesse daran, aufkommende Technologien zu erforschen. Ich bin begeistert davon, komplexe Probleme zu lösen und qualitativ hochwertige, skalierbare Webanwendungen zu erstellen. JavaScript ist meine Kernkompetenz. Ich bin offen für Möglichkeiten, die zu meinen Fähigkeiten, Interessen und meiner Wachstumsmentalität passen, und freue mich immer darauf, zu bedeutenden Projekten beizutragen.",
+    "label": "ÜBER MICH",
+    "cardText": "Offen für Möglichkeiten"
+  },
+  "experience": {
+    "title": "Berufserfahrungen",
+    "positions": [
+      {
+        "title": "Leitender Ingenieur",
+        "company": "HCLTech",
+        "duration": "(Feb 2025 - Gegenwart)"
+      },
+      {
+        "title": "Junior Softwareentwickler",
+        "company": "Extended Web AppTech LLP",
+        "duration": "(Okt 2023 - Jan 2025)"
+      },
+      {
+        "title": "FullStack-Entwickler",
+        "company": "Gincat Software Solutions LLP",
+        "duration": "(Aug 2022 - Sep 2023)"
+      },
+      {
+        "title": "Berater für Content-Management",
+        "company": "Data Core Technologies Limited",
+        "duration": "(Dez 2021 - Aug 2022)"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Fähigkeiten"
+  },
+
+  "projects": {
+    "title": "Projekte",
+    "list": [
+      {
+        "name": "Digital Signage Advertisement Platform",
+        "description": "Entworfen und entwickelt eine skalierbare Plattform für dynamische Werbekampagnen auf öffentlichen Bildschirmen mit rollenbasierten Workflows, erweiterten Dashboards und sicherer OTP-Verifizierung. Vereinfachte Kampagnenerstellung, Zahlungsintegration und Echtzeitanalysen zur Steigerung der Betriebseffizienz.",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "Junior Software Engineer"
+      },
+      {
+        "name": "Express Bus Application",
+        "description": "Extended Express ist eine leistungsstarke Busbuchungsplattform, die das Reisemanagement für Kunden, Fahrer und Administratoren optimiert. Sie bietet nahtlose Erfahrungen mit Echtzeitsuche, Sitzplatzauswahl und Frachtverfolgung.",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "Junior Software Engineer"
+      },
+      {
+        "name": "Teja Organic Application",
+        "description": "Teja Organic ist eine E-Commerce-Plattform für Bio-Produkte, die Kunden, Verkäufer, Administratoren und Lieferanten bedient. Sie bietet nahtloses Einkaufen, detaillierte Analysen und umfassende Verwaltungstools für Produkte, Bestellungen und Lieferungen.",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "MUI",
+          "React-Redux-toolkit",
+          "Google Maps"
+        ],
+        "role": "Junior Software Engineer"
+      },
+      {
+        "name": "Report Builder",
+        "description": "Report Builder ist eine rollenbasierte Anwendung mit Rollen: Super Admin, Admin und Benutzer. Sie bietet Benutzerverwaltung, Datenbankverwaltung, Abfrageausführung und Datenexport-Workflows. Jede Rolle gewährleistet sichere, effiziente Abläufe entsprechend ihrer Verantwortlichkeiten.",
+        "tools": [
+          "React JS",
+          "Typescript",
+          "Tailwind CSS",
+          "React-Redux-toolkit"
+        ],
+        "role": "Full Stack Developer"
+      }
+    ]
+  },
+
+  "education": {
+    "title": "Ausbildungen",
+    "list": [
+      {
+        "id": 1,
+        "title": "Bachelor-Abschluss",
+        "duration": "2016 - 2019",
+        "institution": "Osmania Universität"
+      },
+      {
+        "id": 2,
+        "title": "Höhere Sekundarschule Zertifikat",
+        "duration": "2014 - 2016",
+        "institution": "Scholars Junior College"
+      },
+      {
+        "id": 3,
+        "title": "Sekundarschulabschluss",
+        "duration": "2013 - 2016",
+        "institution": "Regierungsoberschule"
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "KONTAKT",
+    "subHeading": "Kontaktieren Sie mich",
+    "subText": "Wenn Sie Fragen oder Bedenken haben, zögern Sie bitte nicht, mich zu kontaktieren. Ich bin offen für alle Arbeitsmöglichkeiten, die zu meinen Fähigkeiten und Interessen passen.",
+    "labels": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Ihre Nachricht",
+      "sendButton": "Nachricht senden"
+    },
+    "errors": {
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse an!",
+      "required": "Alle Felder sind erforderlich!"
+    },
+    "personalData": {
+      "email": "rameshbaswapuram1@gmail.com",
+      "phone": "+91 9701378218",
+      "address": "Hyderabad, Telangana, Indien",
+      "github": "https://github.com/yourprofile",
+      "linkedIn": "https://linkedin.com/in/yourprofile",
+      "stackOverflow": "https://stackoverflow.com/users/24862926/ramesh-goud"
+    }
+  },
+  "footer": {
+    "portfolioBy": "Portfolio von",
+    "star": "Stern"
   }
 }

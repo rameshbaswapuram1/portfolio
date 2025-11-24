@@ -1,34 +1,38 @@
 import React, { useEffect, useState } from "react";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { IoStar } from "react-icons/io5";
+import Link from "@mui/material/Link";
 import { IconButton } from "@mui/material";
+import { IoStar } from "react-icons/io5";
 import { FaArrowUp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   const [scrollY, setScrollY] = useState<number>(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <Box component="footer" sx={styles.footerContainer}>
-      {350 < scrollY && (
+      {scrollY > 350 && (
         <IconButton href="#/" sx={styles.topArrowButton}>
           <FaArrowUp />
         </IconButton>
       )}
+
       <Box sx={styles.contentWrapper}>
         <Box sx={styles.gradientBorder} />
+
         <Stack sx={styles.footerContent}>
           <Typography variant="body2" sx={styles.footerText}>
-            © Portfolio by{" "}
+            © {t("footer.portfolioBy")}{" "}
             <Link
               href="https://www.linkedin.com/in/ramesh-baswapuram/"
               target="_blank"
@@ -38,6 +42,7 @@ const Footer: React.FC = () => {
               B Ramesh
             </Link>
           </Typography>
+
           <Stack direction="row" spacing={3} alignItems="center">
             <Link
               href="https://github.com/rameshbaswapuram1"
@@ -46,7 +51,7 @@ const Footer: React.FC = () => {
               sx={styles.actionLink}
             >
               <IoStar />
-              <span>Star</span>
+              <span>{t("footer.star")}</span>
             </Link>
           </Stack>
         </Stack>
@@ -82,10 +87,8 @@ const styles = {
     borderTop: "1px solid #353951",
     overflow: "hidden",
   },
-
   contentWrapper: {
     mx: "auto",
-    px: { xs: 3, sm: 6 },
     py: { xs: 3, lg: 5 },
     maxWidth: {
       lg: "70rem",
@@ -94,7 +97,6 @@ const styles = {
     },
     position: "relative",
   },
-
   gradientBorder: {
     position: "absolute",
     top: 0,
@@ -103,23 +105,14 @@ const styles = {
     height: "1px",
     background: "linear-gradient(to right, transparent, #8b5cf6, transparent)",
   },
-
   footerContent: {
     flexDirection: { xs: "column", md: "row" },
     justifyContent: "space-between",
     alignItems: "center",
     spacing: 2,
   },
-
-  footerText: {
-    textAlign: "center",
-  },
-
-  nameLink: {
-    color: "#16f2b3",
-    fontWeight: 500,
-  },
-
+  footerText: { textAlign: "center" },
+  nameLink: { color: "#16f2b3", fontWeight: 500 },
   actionLink: {
     display: "flex",
     alignItems: "center",

@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 import { styles } from "./styles";
 import { skillsImage } from "../../utils/svgsExports";
 import GradientBorder from "../../components/GradientBorder";
-
+import { useTranslation } from "react-i18next";
 const skillsData = [
   "HTML",
   "CSS",
@@ -21,14 +21,15 @@ const skillsData = [
   "Microsoft Office",
   "Canva",
 ];
-
 const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <Box sx={styles.container} id="skills">
       <GradientBorder />
       <Box sx={styles.blurCircle} />
       <Box sx={styles.titleWrapper}>
-        <Typography sx={styles.titleText}>Skills</Typography>
+        <Typography sx={styles.titleText}>{t("skills.title")}</Typography>
         <Box sx={styles.titleLine} />
       </Box>
       <Box sx={styles.marqueeContainer}>

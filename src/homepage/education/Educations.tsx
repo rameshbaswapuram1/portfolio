@@ -7,51 +7,37 @@ import lottieFile from "../../assets/lottie/study.json";
 import Blur23 from "../../assets/svg/experience/blur-23.svg";
 import styles from "./styles";
 import GradientBorder from "../../components/GradientBorder";
+import { useTranslation } from "react-i18next";
+
 interface Education {
   id: number;
   title: string;
   institution: string;
   duration: string;
 }
-const educations: Education[] = [
-  {
-    id: 1,
-    title: "Bachelor Degree",
-    duration: "2016 - 2019",
-    institution: "Osmania University",
-  },
-  {
-    id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2014 - 2016",
-    institution: "Scholars Junior College",
-  },
-  {
-    id: 3,
-    title: "Secondary School Certificate",
-    duration: "2013 - 2016",
-    institution: "Govt High School",
-  },
-];
 
 const Educations: React.FC = () => {
+  const { t } = useTranslation();
+  const rawEducations = t("education.list", { returnObjects: true });
+  const educations: Education[] = Array.isArray(rawEducations)
+    ? rawEducations
+    : [];
   return (
     <Box sx={styles.container} id="education">
       <GradientBorder />
       <Box sx={styles.titleWrapper}>
-        <Typography sx={styles.titleText}>Educations</Typography>
+        <Typography sx={styles.titleText}>{t("education.title")}</Typography>
         <Box sx={styles.titleUnderline} />
       </Box>
+
       <Box sx={styles.leftSection}>
         <AnimationLottie animationPath={lottieFile} />
       </Box>
+
       <Box sx={styles.rightSection}>
         <Stack spacing={2}>
-          {educations.map((experience) => (
-            <GlowCard
-              key={experience.id}
-              identifier={`experience-${experience.id}`}
-            >
+          {educations.map((edu) => (
+            <GlowCard key={edu.id} identifier={`education-${edu.id}`}>
               <Box sx={styles.cardWrapper}>
                 <Box
                   component="img"
@@ -61,7 +47,7 @@ const Educations: React.FC = () => {
                 />
                 <Box sx={styles.durationBox}>
                   <Typography variant="body2" sx={styles.durationText}>
-                    {experience.duration}
+                    {edu.duration}
                   </Typography>
                 </Box>
                 <Stack
@@ -76,10 +62,10 @@ const Educations: React.FC = () => {
                   </Box>
                   <Box>
                     <Typography variant="h6" sx={styles.title}>
-                      {experience.title}
+                      {edu.title}
                     </Typography>
                     <Typography variant="body2" sx={styles.company}>
-                      {experience.institution}
+                      {edu.institution}
                     </Typography>
                   </Box>
                 </Stack>

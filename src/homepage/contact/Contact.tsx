@@ -17,7 +17,9 @@ import { FaStackOverflow } from "react-icons/fa6";
 import { TbMailForward } from "react-icons/tb";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 import { styles } from "./stylesx";
+import { links } from "../../utils/utils";
 
 interface PersonalData {
   email: string;
@@ -28,37 +30,69 @@ interface PersonalData {
   stackOverflow: string;
 }
 
-const personalData: PersonalData = {
-  email: "rameshbaswapuram1@gmail.com",
-  phone: "+91 9701378218",
-  address: "Hyderabad, Telangana, India",
-  github: "https://github.com/yourprofile",
-  linkedIn: "https://linkedin.com/in/yourprofile",
-  stackOverflow: "https://stackoverflow.com/users/24862926/ramesh-goud",
-};
+interface Labels {
+  name: string;
+  email: string;
+  message: string;
+  sendButton: string;
+}
+
+interface ErrorTexts {
+  invalidEmail: string;
+  required: string;
+}
+
+interface UserInput {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface ErrorState {
+  email: boolean;
+  required: boolean;
+}
 
 const isValidEmail = (email: string): boolean =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const ContactSection: React.FC = () => {
-  const [userInput, setUserInput] = useState({
+  const { t } = useTranslation();
+
+  const personalData = t("contact.personalData", {
+    returnObjects: true,
+  }) as PersonalData;
+
+  const labels = t("contact.labels", {
+    returnObjects: true,
+  }) as Labels;
+
+  const errorsText = t("contact.errors", {
+    returnObjects: true,
+  }) as ErrorTexts;
+
+  const [userInput, setUserInput] = useState<UserInput>({
     name: "",
     email: "",
     message: "",
   });
-  const [error, setError] = useState({ email: false, required: false });
+
+  const [error, setError] = useState<ErrorState>({
+    email: false,
+    required: false,
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const checkRequired = () => {
     if (userInput.name && userInput.email && userInput.message) {
-      setError({ ...error, required: false });
+      setError((prev) => ({ ...prev, required: false }));
     }
   };
 
   const handleSendMail = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userInput.name || !userInput.email || !userInput.message) {
-      setError({ ...error, required: true });
+      setError((prev) => ({ ...prev, required: true }));
       return;
     } else if (error.email) return;
 
@@ -78,23 +112,21 @@ const ContactSection: React.FC = () => {
   return (
     <Box sx={styles.container} id="contact">
       <Typography variant="h4" sx={styles.heading}>
-        CONTACT
+        {t("contact.title")}
       </Typography>
 
       <Grid container spacing={6} alignItems="center">
         <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={styles.paper}>
             <Typography variant="h6" sx={styles.subHeading}>
-              Contact with me
+              {t("contact.subHeading")}
             </Typography>
             <Typography variant="body2" sx={styles.subText}>
-              If you have any questions or concerns, please don't hesitate to
-              contact me. I’m open to any work opportunities aligned with my
-              skills and interests.
+              {t("contact.subText")}
             </Typography>
             <form onSubmit={handleSendMail}>
               <TextField
-                label="Your Name"
+                label={labels.name}
                 fullWidth
                 required
                 variant="outlined"
@@ -106,7 +138,7 @@ const ContactSection: React.FC = () => {
                 sx={styles.inputField}
               />
               <TextField
-                label="Your Email"
+                label={labels.email}
                 fullWidth
                 required
                 type="email"
@@ -117,20 +149,20 @@ const ContactSection: React.FC = () => {
                 }
                 onBlur={() => {
                   checkRequired();
-                  setError({
-                    ...error,
+                  setError((prev) => ({
+                    ...prev,
                     email: !isValidEmail(userInput.email),
-                  });
+                  }));
                 }}
                 sx={styles.inputField}
               />
               {error.email && (
                 <Typography color="error" variant="body2" sx={{ mb: 2 }}>
-                  Please provide a valid email!
+                  {errorsText.invalidEmail}
                 </Typography>
               )}
               <TextField
-                label="Your Message"
+                label={labels.message}
                 fullWidth
                 required
                 multiline
@@ -143,13 +175,11 @@ const ContactSection: React.FC = () => {
                 onBlur={checkRequired}
                 sx={styles.inputField}
               />
-
               {error.required && (
                 <Typography color="error" variant="body2" sx={{ mb: 2 }}>
-                  All fields are required!
+                  {errorsText.required}
                 </Typography>
               )}
-
               <Button
                 type="submit"
                 fullWidth
@@ -160,13 +190,15 @@ const ContactSection: React.FC = () => {
                   <CircularProgress size={24} sx={{ color: "white" }} />
                 ) : (
                   <>
-                    Send Message <TbMailForward style={{ marginLeft: 8 }} />
+                    {labels.sendButton}{" "}
+                    <TbMailForward style={{ marginLeft: 8 }} />
                   </>
                 )}
               </Button>
             </form>
           </Paper>
         </Grid>
+
         <Grid size={{ xs: 12, md: 6 }}>
           <Box sx={styles.infoContainer}>
             <Box sx={styles.infoRow}>
@@ -189,9 +221,9 @@ const ContactSection: React.FC = () => {
             </Box>
             <Box sx={styles.socialLinks}>
               {[
-                { icon: <IoLogoGithub />, link: personalData.github },
-                { icon: <BiLogoLinkedin />, link: personalData.linkedIn },
-                { icon: <FaStackOverflow />, link: personalData.stackOverflow },
+                { icon: <IoLogoGithub />, link: links.github },
+                { icon: <BiLogoLinkedin />, link: links.linkedIn },
+                { icon: <FaStackOverflow />, link: links.stackOverflow },
               ].map((item, i) => (
                 <IconButton
                   key={i}
