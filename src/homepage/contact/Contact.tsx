@@ -11,8 +11,8 @@ import {
 } from "@mui/material";
 import { MdAlternateEmail, MdCall } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
-import { IoLogoGithub } from "react-icons/io";
-import { BiLogoLinkedin } from "react-icons/bi";
+// import { IoLogoGithub } from "react-icons/io";
+// import { BiLogoLinkedin } from "react-icons/bi";
 import { FaStackOverflow } from "react-icons/fa6";
 import { TbMailForward } from "react-icons/tb";
 import axios from "axios";
@@ -221,8 +221,8 @@ const ContactSection: React.FC = () => {
             </Box>
             <Box sx={styles.socialLinks}>
               {[
-                { icon: <IoLogoGithub />, link: links.github },
-                { icon: <BiLogoLinkedin />, link: links.linkedIn },
+                // { icon: <IoLogoGithub />, link: links.github },
+                // { icon: <BiLogoLinkedin />, link: links.linkedIn },
                 { icon: <FaStackOverflow />, link: links.stackOverflow },
               ].map((item, i) => (
                 <IconButton
