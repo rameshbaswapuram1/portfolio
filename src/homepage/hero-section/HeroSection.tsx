@@ -1,15 +1,15 @@
 import { Box, Button, Typography } from "@mui/material";
-import { helloText, styles as sharedStyles, styles } from "./styles";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { helloText, styles } from "./styles";
+// import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { MdDownload } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 import { links } from "../../utils/utils";
 
-const accounts = [
-  { link: links.github, icon: <BsGithub size={30} /> },
-  { link: links.linkedIn, icon: <BsLinkedin size={30} /> },
-];
+// const accounts = [
+//   { link: links.github, icon: <BsGithub size={30} /> },
+//   { link: links.linkedIn, icon: <BsLinkedin size={30} /> },
+// ];
 
 const skills = [
   "Html",
