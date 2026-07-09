@@ -49,8 +49,8 @@ const HeroSection = () => {
           .
         </Typography>
 
-        <Box sx={styles.socialLinks}>
-          {accounts.map((account) => (
+        {/* <Box sx={styles.socialLinks}>
+          {accounts&&accounts.length>0&&accounts.map((account) => (
             <Typography
               key={account.link}
               target="_blank"
@@ -61,7 +61,7 @@ const HeroSection = () => {
               {account.icon}
             </Typography>
           ))}
-        </Box>
+        </Box> */}
 
         <Box sx={styles.buttonsContainer}>
           <Typography
